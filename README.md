@@ -4,8 +4,17 @@
 - React
 - JavaScript
 - HTML5
-- CSS
-- SASS
+- PostCss
+<br/><br/>
+
+## 프로젝트 구조 
+```bash
+├── App
+│   ├── TodoTemplate
+│   ├── TodoInsert
+│   └── TodoList
+│       └── TodoListItem
+``` 
 
 ## 구현한 방법과 이유에 대한 간략한 내용
 

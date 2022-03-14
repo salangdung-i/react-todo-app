@@ -1,0 +1,27 @@
+.form {
+  height: 1.8rem;
+  display: flex;
+  /* border: 1px solid black; */
+}
+
+.input {
+  width: 93%;
+  background: #efefef;
+  outline: none;
+  border: none;
+}
+
+.input::placeholder {
+  color: #000;
+}
+
+.button {
+  /* border: 1px solid efefef; */
+  outline: 0;
+  border: 0;
+  width: 7%;
+  height: 100%;
+  background-color: #868e96;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
