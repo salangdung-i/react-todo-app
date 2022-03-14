@@ -1,10 +1,15 @@
 import React from 'react';
+import TodoTemplate from './components/todoTemplate/todoTemplate';
 
 const App = () => {
 
   return (
-    <h1>App</h1>
+    <TodoTemplate >
+
+    </TodoTemplate>
   );
 };
 
+/* #002171 */
+/* #6d6d6d */
 export default App;
