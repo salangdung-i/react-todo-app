@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import { MdAdd } from 'react-icons/md';
 import styles from '../todoInsert/todoInsert.module.css';
 
-const TodoInsert = () => {
+const TodoInsert = ({ onInsert }) => {
+  const [value, setValue] = useState('');
 
   const onSubmit = (e) => {
     e.preventDefault();
+    onInsert(value);
   }
 
   const onChange = (e) => {
+    setValue(e.target.value);
     console.log(e.target.value);
   };
 
@@ -26,5 +29,7 @@ const TodoInsert = () => {
     </div>
   );
 };
+// state -> props로 가는게 좀 어렵당.. ㅎㅎ
+
 
 export default TodoInsert;

@@ -1,12 +1,15 @@
 import React from 'react';
+import styles from '../todoList/todoList.module.css';
+import TodoListItem from '../todoListItem/todoListItem';
 
-const TodoList = () => {
+const TodoList = ({ todos }) => {
   return (
-    <ul>
-      <li>리액트 기초 알아보기</li>
-      <li>리액트 기초 알아보기</li>
-      <li>리액트 기초 알아보기</li>
-    </ul>
+    <div className={styles.TodoList}>
+      {
+        todos.map(todo => (
+          <TodoListItem todo={todo} />
+        ))}
+    </div>
   );
 }
 
