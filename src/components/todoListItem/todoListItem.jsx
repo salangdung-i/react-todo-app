@@ -8,19 +8,16 @@ import styles from '../todoListItem/todoListItem.module.css';
 
 
 const TodoListItem = ({ todo }) => {
-  const checkbox = todo.check ? 'check' : '';
   return (
-    <div>
-      <div className={`styles.box ${checkbox}`}>
-
+    <div className={styles.TodoListItem}>
+      <div className={styles.checkbox}>
+        <MdCheckBoxOutlineBlank className={styles.svg} />
+        <div className={styles.text}>{todo.text}</div>
       </div>
-
-
-
-      {todo.text}
-      <MdRemoveCircleOutline />
-    </div>
-
+      <div className={styles.remove}>
+        <MdRemoveCircleOutline />
+      </div>
+    </div >
   );
 }
 
