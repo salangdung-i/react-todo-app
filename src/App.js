@@ -1,8 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import TodoInsert from './components/todoInsert/todoInsert';
 import TodoList from './components/todoList/todoList';
 import TodoTemplate from './components/todoTemplate/todoTemplate';
-import styles from './App.module.css'
+import styles from './App.module.css';
 
 const App = () => {
   const index = useRef(4);
@@ -24,16 +24,16 @@ const App = () => {
     }
   ]);
 
-  const onRemove = id => {
+  const onRemove = useCallback(id => {
     setTodos(todos.filter(todo => todo.id !== id));
-  }
+  }, [todos]);
 
-  const onChecked = id => {
+  const onChecked = useCallback(id => {
     setTodos(todos.map(todo =>
       todo.id === id ? { ...todo, checked: !todo.checked } : todo));
-  }
+  }, [todos]);
 
-  const onInsert = text => {
+  const onInsert = useCallback(text => {
     const todo = {
       id: index.current,
       text: text,
@@ -41,7 +41,7 @@ const App = () => {
     };
     setTodos(todos.concat(todo));
     index.current += 1;
-  };
+  }, [todos]);
 
   return (
     <TodoTemplate >
@@ -52,6 +52,4 @@ const App = () => {
 
 };
 
-/* #002171 */
-/* #6d6d6d */
 export default App;

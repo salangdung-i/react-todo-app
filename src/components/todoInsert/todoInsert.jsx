@@ -1,18 +1,19 @@
-import React, { useRef, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { MdAdd } from 'react-icons/md';
 import styles from '../todoInsert/todoInsert.module.css';
 
 const TodoInsert = ({ onInsert }) => {
   const [value, setValue] = useState('');
 
-  const onSubmit = (e) => {
+  const onSubmit = useCallback((e) => {
     onInsert(value);
     setValue('');
     e.preventDefault();
-  }
-  const onChange = (e) => {
+  }, [onInsert, value]);
+
+  const onChange = useCallback((e) => {
     setValue(e.target.value);
-  };
+  }, []);
 
   return (
     <div>

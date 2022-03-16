@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import {
   MdCheckBoxOutlineBlank,
   MdCheckBox,
@@ -6,7 +6,7 @@ import {
 } from 'react-icons/md';
 import styles from '../todoListItem/todoListItem.module.css';
 
-const TodoListItem = ({ todo, onRemove, onChecked }) => {
+const TodoListItem = memo(({ todo, onRemove, onChecked }) => {
   const { id, text, checked } = todo;
 
 
@@ -25,6 +25,6 @@ const TodoListItem = ({ todo, onRemove, onChecked }) => {
       </div>
     </div >
   );
-}
+});
 
 export default TodoListItem;
