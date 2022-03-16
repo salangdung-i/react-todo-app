@@ -6,13 +6,12 @@ const TodoInsert = ({ onInsert }) => {
   const [value, setValue] = useState('');
 
   const onSubmit = (e) => {
-    e.preventDefault();
     onInsert(value);
+    setValue('');
+    e.preventDefault();
   }
-
   const onChange = (e) => {
     setValue(e.target.value);
-    console.log(e.target.value);
   };
 
   return (
@@ -20,7 +19,7 @@ const TodoInsert = ({ onInsert }) => {
       <form className={styles.form} onSubmit={onSubmit}>
         <input
           className={styles.input}
-          type="text"
+          value={value}
           placeholder="할 일을 입력하세요."
           onChange={onChange}
         />
@@ -29,7 +28,6 @@ const TodoInsert = ({ onInsert }) => {
     </div>
   );
 };
-// state -> props로 가는게 좀 어렵당.. ㅎㅎ
 
 
 export default TodoInsert;

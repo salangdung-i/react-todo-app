@@ -10,36 +10,43 @@ const App = () => {
     {
       id: 1,
       text: '리액트 기초 알아보기',
-      check: true,
+      checked: true,
     },
     {
       id: 2,
       text: '컴포넌트 스타일링 해보기',
-      check: false,
+      checked: false,
     },
     {
       id: 3,
       text: '일정관리 앱 만들어보기',
-      check: true,
+      checked: true,
     }
   ]);
 
+  const onRemove = id => {
+    setTodos(todos.filter(todo => todo.id !== id));
+  }
 
-  const onInsert = (value) => {
-    setTodos(
-      ...todos,
-      {
-        id: index + 1,
-        text: value,
-        check: false
-      }
-    );
+  const onChecked = id => {
+    setTodos(todos.map(todo =>
+      todo.id === id ? { ...todo, checked: !todo.checked } : todo));
+  }
+
+  const onInsert = text => {
+    const todo = {
+      id: index.current,
+      text: text,
+      checked: false,
+    };
+    setTodos(todos.concat(todo));
+    index.current += 1;
   };
 
   return (
     <TodoTemplate >
       <TodoInsert onInsert={onInsert} />
-      <TodoList todos={todos} />
+      <TodoList todos={todos} onRemove={onRemove} onChecked={onChecked} />
     </TodoTemplate>
   );
 
